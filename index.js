@@ -158,6 +158,11 @@ class Instructor extends Lambdasian {
   grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}`
   }
+
+  stretchMethod(studentAttr){
+    studentAttr.grade += Math.random();
+  }
+
 }
 
 /*
@@ -180,7 +185,8 @@ class Student extends Lambdasian{
     super(attr)
     this.previousBackground = attr.previousBackground,
     this.className = attr.className,
-    this.favSubjects = attr.favSubjects
+    this.favSubjects = attr.favSubjects,
+    this.grade = 80
   }
 
   listSubjects(){
@@ -194,6 +200,15 @@ class Student extends Lambdasian{
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
   }
+
+  stretchGraduate(){
+    if (grade > 70) {
+      return `${this.name} is a big boy now.`
+    } else {
+      return `${this.name} should make more use of the help channel.`
+    }
+  }
+
 }
 
 /*
@@ -228,7 +243,7 @@ class ProjectManager extends Instructor{
 
 /*
   STRETCH PROBLEM (no tests!)
-    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100. Ok
     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
     - Add a graduate method to a student.
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
